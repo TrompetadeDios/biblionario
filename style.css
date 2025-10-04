@@ -59,7 +59,7 @@ body {
 /* ========================================================= */
 #rules-screen.active {
     /* 🚨 REEMPLAZA ESTA RUTA CON LA RUTA DE TU IMAGEN (Ej: 'untitled-0.jpg') */
-    background-image: url('images/rules_background.jpg'); 
+    background-image: url('images/fondo.png'); 
     background-size: cover; /* Clave para la responsividad: cubre el contenedor */
     background-position: center;
     background-repeat: no-repeat;
