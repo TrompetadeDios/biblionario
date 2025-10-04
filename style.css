@@ -209,17 +209,22 @@ h1 {
 }
 
 
-/* --- PANTALLA DE JUEGO --- */
+/* --- PANTALLA DE JUEGO (MODIFICADA) --- */
 #game-screen {
     flex-direction: row;
     justify-content: space-around;
     align-items: flex-start;
     padding-top: 50px;
     
+    /* ⭐ MODIFICACIÓN: Imagen de fondo para la sección de juego */
+    background-image: url('images/fondo.png'); /* ¡CAMBIA ESTA RUTA! */
+    background-size: cover; 
+    background-position: center;
+    background-repeat: no-repeat;
     
-    background: linear-gradient(135deg, #7e1dda 0%, #1f7af1 70%, #6523fd 100%);
-    background-size: cover;
-    background-color: rgba(11, 12, 58, 0.95);
+    /* Oscurece la imagen de fondo para mejor legibilidad del texto */
+    background-color: #0b0c3a62; 
+    background-blend-mode: overlay; /* Combina la imagen con el color base, oscureciéndola */
 }
 
 
