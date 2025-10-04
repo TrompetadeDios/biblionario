@@ -21,8 +21,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const trackList = [
         'musica/pista-tecnologica-1.mp3',
-        'musica/pista-tecnologica-2.mp3',
-        'musica/pista-tecnologica-3.mp3',
     ];
     const backgroundMusic = document.getElementById('background-music');
     if (backgroundMusic) {
