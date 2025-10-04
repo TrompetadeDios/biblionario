@@ -62,7 +62,7 @@ body {
     background-image: url('images/fondo.png'); 
     
     /* Configuración para que el logo central sea visible sin recorte */
-    background-size: contain; /* ¡CLAVE! Asegura que la imagen quepa completamente */
+    background-size: cover; /* ¡CLAVE! Asegura que la imagen quepa completamente */
     background-position: center; 
     background-repeat: no-repeat; 
     
