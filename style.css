@@ -44,19 +44,41 @@ body {
 
 /* --- MODIFICACIÓN CLAVE: FONDO Y BORDE PARA LA PANTALLA DE INICIO --- */
 #start-screen.active {
-    background-image: url('images/fondo.png'); /* <--- ¡CAMBIA 'fondo.png' POR LA EXTENSIÓN CORRECTA! */
+    background-image: url('images/fondo.png'); /* <--- RUTA DE TU FONDO DE INICIO */
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    /* Eliminamos cualquier animation o background-size: 400% 400% de aquí */
-
-    /* Agregamos una posición relativa para los pseudo-elementos si decidimos usarlos más tarde */
     position: relative; 
-    /* Aseguramos que el contenido esté centrado sobre la imagen */
     display: flex;
     justify-content: center;
     align-items: center;
 }
+
+/* ========================================================= */
+/* ⭐ NUEVAS MODIFICACIONES: Fondo Responsivo para Reglas */
+/* ========================================================= */
+#rules-screen.active {
+    /* 🚨 REEMPLAZA ESTA RUTA CON LA RUTA DE TU IMAGEN (Ej: 'untitled-0.jpg') */
+    background-image: url('images/rules_background.jpg'); 
+    background-size: cover; /* Clave para la responsividad: cubre el contenedor */
+    background-position: center;
+    background-repeat: no-repeat;
+    
+    /* Fondo oscuro semitransparente para mejorar la legibilidad del texto */
+    background-color: rgba(0, 0, 0, 0.7); 
+    background-blend-mode: multiply; 
+}
+
+#rules-screen .screen-content {
+    /* Asegura que el contenido sea legible sobre el fondo */
+    background-color: rgba(0, 0, 0, 0.85); /* Más opaco para el texto de las reglas */
+    border: 3px solid #ffc107; /* Opcional: Borde destacado para la caja de reglas */
+    max-height: 80vh; /* Limita la altura */
+    overflow-y: auto; /* Permite desplazamiento si las reglas son largas */
+}
+
+/* ========================================================= */
+
 
 /* Animación del Gradiente para el Borde */
 @keyframes BorderGradientAnimation {
@@ -94,7 +116,7 @@ body {
 h1 {
     font-size: 3.5em;
     text-shadow: 0 0 10px rgba(255, 255, 255, 0.8), 
-                 0 0 20px rgba(0, 255, 255, 0.6); 
+                0 0 20px rgba(0, 255, 255, 0.6); 
     color: white;
 }
 
@@ -439,8 +461,8 @@ h1 {
 }
 
 /* El keyframes GradientAnimation ya no se usa para el #start-screen.active,
-   pero lo conservamos por si lo quieres usar en otro lugar.
-   Hemos creado BorderGradientAnimation para el borde.
+    pero lo conservamos por si lo quieres usar en otro lugar.
+    Hemos creado BorderGradientAnimation para el borde.
 */
 @keyframes blink {
     50% {
@@ -504,8 +526,8 @@ h1 {
     
     font-size: 5em !important; 
     text-shadow: 0 0 20px #8f05ff, 
-                 0 0 40px #ff00c8, 
-                 0 0 60px #00a2ff; 
+                0 0 40px #ff00c8, 
+                0 0 60px #00a2ff; 
     animation: neon-flicker 1.5s infinite alternate; 
     font-weight: 900;
 }
@@ -524,7 +546,7 @@ h1 {
     font-weight: bold;
     font-size: 2em !important; 
     text-shadow: 0 4px 4px rgba(0, 0, 0, 0.5), 
-                 0 0 10px rgba(255, 215, 0, 0.8);
+                0 0 10px rgba(255, 215, 0, 0.8);
     opacity: 0; 
     transition: opacity 0.8s ease-in;
 }
@@ -545,7 +567,7 @@ h1 {
     z-index: 5; 
     border: 5px solid transparent; 
     background-image: linear-gradient(#000000, #000000), 
-                      linear-gradient(to right, #00a2ff, #ff00c8);
+                        linear-gradient(to right, #00a2ff, #ff00c8);
     background-origin: border-box;
     background-clip: content-box, border-box;
     
@@ -677,9 +699,9 @@ h1 {
 
     #game-screen {
         flex-direction: column; 
-        align-items: center;    
+        align-items: center;      
         padding-top: 20px;
-        height: auto;       
+        height: auto;        
     }
 
     #rounds-container {
