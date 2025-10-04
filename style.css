@@ -42,7 +42,7 @@ body {
     pointer-events: none; 
 }
 
-/* --- MODIFICACIÓN CLAVE: FONDO Y BORDE PARA LA PANTALLA DE INICIO --- */
+/* --- PANTALLA DE INICIO --- */
 #start-screen.active {
     background-image: url('images/fondo.png'); /* <--- RUTA DE TU FONDO DE INICIO */
     background-size: cover;
@@ -55,30 +55,30 @@ body {
 }
 
 /* ========================================================= */
-/* ⭐ NUEVAS MODIFICACIONES: Fondo Responsivo para Reglas */
+/* ⭐ MODIFICACIÓN CLAVE: Fondo Responsivo para Reglas (Logo Visible) */
 /* ========================================================= */
 #rules-screen.active {
-    /* 🚨 REEMPLAZA ESTA RUTA CON LA RUTA DE TU IMAGEN (Ej: 'untitled-0.jpg') */
+    /* 🚨 RUTA DE LA IMAGEN DE FONDO DE LAS REGLAS (Reemplaza si es necesario) */
     background-image: url('images/fondo.png'); 
-    background-size: cover; /* Clave para la responsividad: cubre el contenedor */
-    background-position: center;
-    background-repeat: no-repeat;
     
-    /* Fondo oscuro semitransparente para mejorar la legibilidad del texto */
-    background-color: rgba(0, 0, 0, 0.7); 
-    background-blend-mode: multiply; 
+    /* Configuración para que el logo central sea visible sin recorte */
+    background-size: contain; /* ¡CLAVE! Asegura que la imagen quepa completamente */
+    background-position: center; 
+    background-repeat: no-repeat; 
+    
+    /* Rellena el espacio no cubierto por 'contain' */
+    background-color: #0b0c3a; 
+    
+    /* background-blend-mode: multiply; */ /* Opcional: Descomenta si deseas oscurecer la imagen */
 }
 
 #rules-screen .screen-content {
     /* Asegura que el contenido sea legible sobre el fondo */
     background-color: rgba(0, 0, 0, 0.85); /* Más opaco para el texto de las reglas */
-    border: 3px solid #ffc107; /* Opcional: Borde destacado para la caja de reglas */
-    max-height: 80vh; /* Limita la altura */
-    overflow-y: auto; /* Permite desplazamiento si las reglas son largas */
+    border: 3px solid #ffc107; 
+    max-height: 80vh; 
+    overflow-y: auto; 
 }
-
-/* ========================================================= */
-
 
 /* Animación del Gradiente para el Borde */
 @keyframes BorderGradientAnimation {
@@ -88,27 +88,27 @@ body {
 }
 
 .screen-content {
-    padding: 40px; /* Aumentado para dar más espacio al borde */
+    padding: 40px; 
     z-index: 10; 
-    background-color: rgba(0, 0, 0, 0.1); /* Fondo negro semi-transparente */
+    background-color: rgba(0, 0, 0, 0.1); 
     border-radius: 15px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
-    max-width: 800px; /* Limita el ancho para que el borde se vea mejor */
-    position: relative; /* Necesario para el pseudo-elemento */
-    overflow: hidden; /* Asegura que el gradiente no se desborde */
+    max-width: 800px; 
+    position: relative; 
+    overflow: hidden; 
 
     /* Borde de gradiente animado para .screen-content */
-    border: 3px solid transparent; /* Borde inicial transparente para ocupar espacio */
-    background-origin: border-box; /* El background-image se extiende al borde */
-    background-clip: padding-box, border-box; /* Recorta el fondo en el padding, y el borde es un nuevo bg */
+    border: 3px solid transparent; 
+    background-origin: border-box; 
+    background-clip: padding-box, border-box; 
     
     /* El gradiente del borde */
     background-image: 
-        linear-gradient(rgba(0, 0, 0, 0.418), rgba(0, 0, 0, 0.473)), /* Fondo interno para que no se vea el gradiente */
-        linear-gradient(to right, #a006c76b, #02b5fc83, #e937e941, #0f202742); /* Tu gradiente original */
+        linear-gradient(rgba(0, 0, 0, 0.418), rgba(0, 0, 0, 0.473)), 
+        linear-gradient(to right, #a006c76b, #02b5fc83, #e937e941, #0f202742); 
     
-    background-size: 400% 400%; /* Tamaño para que el gradiente se mueva */
-    animation: BorderGradientAnimation 10s ease infinite; /* Animación para el borde */
+    background-size: 400% 400%; 
+    animation: BorderGradientAnimation 10s ease infinite; 
 }
 
 /* ----------------------------------------------------------------- */
@@ -209,6 +209,7 @@ h1 {
 }
 
 
+/* --- PANTALLA DE JUEGO --- */
 #game-screen {
     flex-direction: row;
     justify-content: space-around;
@@ -460,10 +461,6 @@ h1 {
     animation: blink 0.5s steps(1, start) infinite;
 }
 
-/* El keyframes GradientAnimation ya no se usa para el #start-screen.active,
-    pero lo conservamos por si lo quieres usar en otro lugar.
-    Hemos creado BorderGradientAnimation para el borde.
-*/
 @keyframes blink {
     50% {
         opacity: 0;
@@ -472,7 +469,7 @@ h1 {
 
 
 .restart-btn-fail {
-    background-color: #dc3545; /* Rojo de fallo */
+    background-color: #dc3545; 
     color: white;
     padding: 10px 20px;
     border: 2px solid #a71d2a;
@@ -503,8 +500,9 @@ h1 {
 }
 
 
+/* --- PANTALLA DE VICTORIA --- */
 #win-screen {
-
+    
     background-color: #000000; 
     background-image: radial-gradient(circle, #0b0c3a 1px, transparent 0); 
     background-size: 40px 40px; 
@@ -686,6 +684,7 @@ h1 {
 }
 
 
+/* --- MEDIA QUERIES PARA RESPONSIVIDAD --- */
 @media (max-width: 800px) {
 
     h1 {
@@ -757,5 +756,12 @@ h1 {
     #footer-copyright {
         font-size: 0.9em; 
         padding: 6px 0; 
+    }
+    
+    /* Ajustes específicos para la pantalla de reglas en móviles */
+    #rules-screen .screen-content {
+        max-width: 95%; /* Da más espacio en los bordes para el contenido de las reglas */
+        padding: 15px;
+        font-size: 0.9em; /* Reduce el tamaño del texto si es necesario en móviles */
     }
 }
