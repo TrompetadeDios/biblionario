@@ -88,7 +88,7 @@ document.addEventListener('DOMContentLoaded', () => {
         { question: "¿Qué nos enseña la muerte de Asael, al ser herido en la quinta costilla?"
             , answers: ["Que la velocidad no importa en el liderazgo.", "Que los líderes deben ser más fuertes que sus enemigos.", "Que la vanidad no afecta a los líderes.", "Que por más bueno que seas, siempre necesitarás de otros."], correctAnswer: 3 },
             //---capitulo 2 ---//
-        { question: "en el capitulo 2 ¿Cuál de las siguientes afirmaciones describe mejor a Barzilai, según el capítulo?"
+        { question: "En el capitulo 2 ¿Cuál de las siguientes afirmaciones describe mejor a Barzilai, según el capítulo?"
             , answers: ["Un hombre noble, anciano y leal a su rey.", "Un consejero del rey que se oponía a David.", "Un joven guerrero que se destacó en la batalla.", "Un anciano ambicioso que buscaba poder político."], correctAnswer: 0 },
 
         { question: "Barzilai ayudó a David en un momento de gran dificultad. ¿Qué fue lo que le ofreció para mostrar su apoyo?"

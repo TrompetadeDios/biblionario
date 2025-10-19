@@ -1,12 +1,13 @@
 body {
     font-family: 'Arial', sans-serif;
     margin: 0;
-    background-color: #0b0c3a; 
+    background-color: #000385; 
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     color: white;
     overflow: hidden; 
+    background-image: linear-gradient(10deg, #01021e, #0824ed);
 }
 
 .screen {
@@ -45,8 +46,8 @@ body {
 /* --- PANTALLA DE INICIO --- */
 #start-screen.active {
     background-image: url('images/fondo.png'); /* <--- RUTA DE TU FONDO DE INICIO */
-    background-size: cover;
-    background-position: center;
+    background-size: contain;
+    background-position: top;
     background-repeat: no-repeat;
     position: relative; 
     display: flex;
@@ -62,12 +63,12 @@ body {
     background-image: url('images/fondo.png'); 
     
     /* Configuración para que el logo central sea visible sin recorte */
-    background-size: cover; /* ¡CLAVE! Asegura que la imagen quepa completamente */
-    background-position: center; 
+    background-size: contain; /* ¡CLAVE! Asegura que la imagen quepa completamente */
+    background-position: top; 
     background-repeat: no-repeat; 
     
     /* Rellena el espacio no cubierto por 'contain' */
-    background-color: #0b0c3a; 
+    background-color: #07099700;
     
     /* background-blend-mode: multiply; */ /* Opcional: Descomenta si deseas oscurecer la imagen */
 }
@@ -733,7 +734,7 @@ h1 {
     .game-container {
         width: 90%; 
         max-width: none; 
-        padding: 15px;
+        padding: 45px;
         max-height: 60vh; 
         overflow-y: auto; 
     }
