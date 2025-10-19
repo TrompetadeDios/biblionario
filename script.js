@@ -336,9 +336,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // =========================================================
-    // ⭐ MODIFICACIÓN CLAVE 3: Usa el set de preguntas de la ronda actual
-    // =========================================================
     function loadQuestion() {
         selectedAnswer = null;
         gameElements.answers.innerHTML = '';
@@ -377,7 +374,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         playSound('suspense', true);
 
-        // Uso de currentRoundQuestions en lugar de questions
+
         const currentQuestion = currentRoundQuestions[currentQuestionIndex];
         gameElements.question.textContent = currentQuestion.question;
 
@@ -405,7 +402,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
 // =========================================================
-// --- FUNCIÓN CENTRAL PARA ENVIAR DATOS A FORMSUBMIT (SOLUCIÓN FINAL) ---
 // =========================================================
 /**
  * Envía el progreso del juego a FormSubmit en momentos clave.
@@ -439,8 +435,6 @@ function sendGameProgress(player, roundIndex, points, status) {
     form.action = formUrl;
     form.style.display = 'none';
 
-    // 1. Definimos la URL de redirección
-    // Mantenemos la parte principal de la URL y si es Victoria, añadimos '#win'
     const currentUrlBase = window.location.href.split('#')[0];
     const nextUrl = (status === 'VICTORIA') 
         ? currentUrlBase + '#win'
@@ -475,9 +469,6 @@ function sendGameProgress(player, roundIndex, points, status) {
     console.log(`Resultado enviado a FormSubmit: ${status} en Ronda ${roundNumber}. Redireccionando a: ${nextUrl}`);
 }
 
-    // =========================================================
-    // ⭐ nextQuestion (MODIFICADA: Solo envía al GANAR)
-    // =========================================================
     function nextQuestion() {
         // currentQuestionIndex es el índice de la pregunta que acaba de responder (0-14)
         if (currentQuestionIndex === currentRoundQuestions.length - 1) {
@@ -498,10 +489,6 @@ function sendGameProgress(player, roundIndex, points, status) {
         }
     }
 
-
-    // =========================================================
-    // ⭐ MODIFICACIÓN CLAVE 4: revealAnswer (Envía a FormSubmit al perder)
-    // =========================================================
     function revealAnswer() {
         if (selectedAnswer === null) {
             alert("Por favor, selecciona una respuesta.");
@@ -581,9 +568,6 @@ function sendGameProgress(player, roundIndex, points, status) {
     }
 
 
-    // =========================================================
-    // ⭐ MODIFICACIÓN CLAVE 5: Usa currentRoundQuestions en comodines
-    // =========================================================
     function useHint() {
         if (isHintUsed) return;
         isHintUsed = true;
